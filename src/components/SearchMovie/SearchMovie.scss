@@ -1,0 +1,69 @@
+@use './../../utilities/_variables.scss' as v;
+
+.container-search{
+    background-color: v.$grey;
+    display: flex;
+    padding: .8em;
+    border-radius: 0 .5em .5em 0;
+    input{
+        font-size: 1.2em;
+        border: none;
+        &:focus{
+            border: none;
+            outline: none;
+        }
+    }
+    button{
+        font-size: 1.2em;
+        background-color: v.$yellow;
+        border: none;
+        border-radius: 0 .5em .5em 0;
+        font-weight: bold;
+        padding: .5em;
+        &:hover{
+            background-color: darken(v.$yellow, 12%);
+            cursor: pointer;
+            transition: .2s;
+        }
+    }
+}
+
+
+.container-card{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    .card-to-detail{
+        text-decoration: none;
+        color: v.$blue;
+        padding: 0.5em 0;
+        display: block;
+        background-color: lighten(v.$grey, 5%);
+        /* border: 1px solid #5698ed; */
+        border-radius: 5px;
+        width: 75%;
+        font-weight: bold;
+        margin: 0 auto 20px auto;
+        &:hover{
+            background-color: lighten(v.$grey, 15%);
+        }
+    }
+    .card{
+        background-color: v.$grey;
+        width: 200px;
+        margin: 1em;
+        text-align: center;
+        h2{
+            height: 2.5em;
+            font-size: 1em;
+            text-align: center;
+            padding: 0.4em;
+        }
+        img{
+            object-fit: cover;
+            min-width: auto;
+            height: 300px;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+@use './../../utilities/variables.scss' as v;
+
+.container{
+    background-color: v.$black;
+    padding: .4em;
+    display: flex;
+    align-items: center;
+    .container-img{
+        margin-left: .4em;
+    }
+    ul{
+        margin: 0;
+        display: flex;
+        list-style-type: none;
+        li{
+            a{
+                color: white;
+                font-weight: bold;
+                text-decoration: none;
+                padding: .6em;
+                border-radius: .2em;
+                &:hover{
+                    // background-color: red;
+                    background-color: lighten(v.$black, 8%);
+                    transition: .2s;
+                }
+                &.active{
+                    background-color: lighten(v.$black, 8%);
+                }
+            }
+        }
+    }
+}
