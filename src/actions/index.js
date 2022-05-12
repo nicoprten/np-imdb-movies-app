@@ -1,6 +1,5 @@
 const axios = require('axios');
 const apiKey = '4ef335cb';
-// TODO call api detail movie: https://www.omdbapi.com/?apikey=4ef335cb&i=tt2975590
 
 export function getMovies(title){
     return function(dispatch){
@@ -21,12 +20,12 @@ export function getMovieDetail(id){
 export function addFav(id){
     return {
         type: 'ADD_FAV',
-        id
+        payload: id
     }
 }
 export function delFav(id){
     return {
         type: 'DELETE_FAV',
-        id
+        payload: id
     }
 }

@@ -26,7 +26,6 @@ function SearchMovie(props){
                 {props.movies.length !== 0 ? props.movies.map((m) => 
                     <div className='card' key={m.imdbID}>
                         <img alt={m.Title} src={m.Poster}/>
-                        {/* <p>Release: {m.Year}</p> */}
                         <h2>{m.Title}</h2>
                         <Link to={`/movie/${m.imdbID}`} className='card-to-detail' onClick={() => props.getMovieDetail(m.imdbID)}>
                             View detail

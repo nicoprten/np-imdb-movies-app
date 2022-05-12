@@ -17,7 +17,11 @@ export default function rootReducer(state=initialState, action){
                 detail: {loading: false, data: action.payload}
             }
         case 'ADD_FAV':
-            return 'adding fav';
+            let movieFav = state.movies.find(m => m.imdbID == action.payload);
+            return {
+                ...state,
+                favs: [...state.favs, movieFav]
+            };
         case 'DELETE_FAV':
             return 'deleting from favs';
         default:

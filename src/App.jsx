@@ -9,7 +9,6 @@ export default function App(){
     return(
         <div>
             <NavBar />
-            <h1>PRTEN MOVIES APP</h1>
             <Routes>
                 <Route path='/' element={<SearchMovie />}/>
                 <Route path='/favs' element={<Favorites />}/>
