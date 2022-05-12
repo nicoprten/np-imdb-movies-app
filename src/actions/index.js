@@ -7,11 +7,15 @@ export function getMovies(title){
         return fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${title}`)
         .then(r => r.json())
         .then(d => dispatch({type: 'GET_MOVIES', payload: d}))
+        .catch(e => console.log(e));
     }
 }
-export function getMovieDetail(){
-    return {
-        type: 'GET_MOVIE_DETAIL'
+export function getMovieDetail(id){
+    return function(dispatch){
+        return axios.get(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
+        .then(r => r.data)
+        .then(d => dispatch({type: 'GET_MOVIE_DETAIL', payload: d}))
+        .catch(e => console.log(e));
     }
 }
 export function addFav(id){

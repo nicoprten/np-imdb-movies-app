@@ -1,15 +1,15 @@
 // import * as actions from './../../actions/index.js';
 // import { bindActionCreators } from 'redux';
 import './SearchMovie.scss';
-import {useState} from 'react';
+import { useState } from 'react';
 import { connect } from 'react-redux';
-import { getMovies } from './../../actions/index.js';
+import { getMovies, getMovieDetail } from './../../actions/index.js';
 import { Link } from 'react-router-dom';
 
 function SearchMovie(props){
     console.log(props.movies)
     // console.log(getMovies)
-    console.log(props.getMovies)
+    // console.log(props.getMovieDetail)
     const [movie, setMovie] = useState('');
 
     return(
@@ -28,7 +28,7 @@ function SearchMovie(props){
                         <img alt={m.Title} src={m.Poster}/>
                         {/* <p>Release: {m.Year}</p> */}
                         <h2>{m.Title}</h2>
-                        <Link to={`/movie/${m.imdbID}`} className='card-to-detail'>
+                        <Link to={`/movie/${m.imdbID}`} className='card-to-detail' onClick={() => props.getMovieDetail(m.imdbID)}>
                             View detail
                         </Link>
                     </div>
@@ -50,4 +50,4 @@ const mapStateToProps = (state) => {
 //     }
 // }
 
-export default connect(mapStateToProps, {getMovies})(SearchMovie);
+export default connect(mapStateToProps, {getMovies, getMovieDetail})(SearchMovie);

@@ -1,0 +1,7 @@
+@use './../../utilities/_variables.scss' as v;
+
+.card-detail{
+    display: flex;
+    justify-content: center;
+    background-color: v.$grey;
+}

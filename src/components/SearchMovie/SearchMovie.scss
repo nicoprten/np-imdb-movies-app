@@ -1,7 +1,6 @@
 @use './../../utilities/_variables.scss' as v;
 
 .container-search{
-    background-color: v.$grey;
     display: flex;
     padding: .8em;
     border-radius: 0 .5em .5em 0;
@@ -31,10 +30,15 @@
 
 
 .container-card{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    // display: flex;
+    // flex-wrap: wrap;
+    // align-items: center;
+    // justify-content: center;
+    display: grid;
+    justify-items: center;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); // https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
+    margin: 0 2em;
     .card-to-detail{
         text-decoration: none;
         color: v.$blue;

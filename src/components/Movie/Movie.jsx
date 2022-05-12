@@ -1,5 +1,23 @@
-export default function Movie(){
+import { connect } from 'react-redux';
+import './Movie.scss';
+
+
+function Movie(props){
+    console.log(props)
     return(
-        <h2>Movie Detail</h2>
+        <div className="card-detail">
+            {props.detail.loading ? <h2>Loading...</h2> : 
+                <h2>{props.detail.data.Title}</h2>
+                
+            }
+        </div>
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+        detail: state.detail
+    }
+}
+
+export default connect(mapStateToProps, {})(Movie);

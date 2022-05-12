@@ -1,7 +1,7 @@
 const initialState = {
     favs: [],
     movies: [],
-    detail: {}
+    detail: {loading: true}
 }
 
 export default function rootReducer(state=initialState, action){
@@ -12,7 +12,10 @@ export default function rootReducer(state=initialState, action){
                 movies: action.payload.Search
             }
         case 'GET_MOVIE_DETAIL':
-            return 'getting movie detail';
+            return {
+                ...state,
+                detail: {loading: false, data: action.payload}
+            }
         case 'ADD_FAV':
             return 'adding fav';
         case 'DELETE_FAV':
