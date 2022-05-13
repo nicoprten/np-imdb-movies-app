@@ -23,7 +23,7 @@ function SearchMovie(props){
                 }}>Search</button>
             </div>
             <div className='container-card'>
-                {props.movies.length !== 0 ? props.movies.map((m) => 
+                {props.movies !== undefined ? props.movies.map((m) => 
                     <div className='card' key={m.imdbID}>
                         <img alt={m.Title} src={m.Poster}/>
                         <h2>{m.Title}</h2>
@@ -31,7 +31,7 @@ function SearchMovie(props){
                             View detail
                         </Link>
                     </div>
-                ) : <h2>Cargando...</h2>}
+                ) : <h2>Película no encontrada</h2>}
             </div>
         </>
     )
