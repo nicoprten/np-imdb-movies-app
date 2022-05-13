@@ -33,7 +33,7 @@
     display: grid;
     justify-items: center;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); // https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); // https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
     margin: 0 2em;
     .card{
         background-color: v.$grey;

@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getMovieDetail } from './../../actions/index.js'; 
-import './Favorites.scss';
+// import './Favorites.scss';
+import './../SearchMovie/SearchMovie.scss';
 
 function Favorites({moviesFavs, getMovieDetail}){
     return(
-        <div className="favorites-container">
+        <div className="container-card">
             {moviesFavs.length > 0 ? moviesFavs.map((m) => 
                 <div className='card' key={m.imdbID}>
                     <img alt={m.Title} src={m.Poster}/>
