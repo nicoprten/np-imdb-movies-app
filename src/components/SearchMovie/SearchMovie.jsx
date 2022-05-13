@@ -7,7 +7,7 @@ import { getMovies, getMovieDetail } from './../../actions/index.js';
 import { Link } from 'react-router-dom';
 
 function SearchMovie(props){
-    console.log(props.movies)
+    // console.log(props.movies)
     // console.log(getMovies)
     // console.log(props.getMovieDetail)
     const [movie, setMovie] = useState('');

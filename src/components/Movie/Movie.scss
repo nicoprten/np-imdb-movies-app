@@ -101,6 +101,7 @@
         }
         .more-rating{
             display: flex;
+            align-items: center;
             gap: 1em;
             border-radius: 5px;
             padding: 5px 10px;
@@ -120,13 +121,8 @@
         .poster-container{
             position: relative;
             width: 25%;
-            button{
+            .button-triangle{
                 position: absolute;
-                border: none;
-                background-color: darken(v.$grey, 2%);
-                color: white;
-                width: 40px;
-                padding: 0;
                 .triangle{
                     border-top: 5px solid plum;
                     border-bottom: 5px solid black;
@@ -140,9 +136,15 @@
                     position: absolute;
                     top: 32px;
                 }
-                p{
+                button{
+                    color: white;
+                    width: 40px;
+                    padding: 0;
+                    border: none;
+                    background-color: darken(v.$grey, 2%);
                     font-size: 28px;
                     margin: 0;
+                    position: static;
                     &:hover{
                         cursor: pointer;
                         color: v.$blue;
@@ -244,6 +246,16 @@
         }
     }
     @media screen and (max-width:614px) {
+        .more-rating-container{
+            p{
+                font-size: 12px;
+            }
+            .more-rating{
+                p{
+                    font-size: 12px;
+                }
+            }
+        }
         .info-container{
             flex-direction: column;
             .poster-container{
@@ -251,10 +263,21 @@
             }
             .plot-container{
                 width: 100%;
+                .names-container{
+                    li{
+                        flex-direction: column;
+                    }
+                }
             }
             .extrainfo-container{
                 display: block;
                 width: 100%;
+                text-align: center;
+                ul{
+                    li{
+                        border-bottom: 1px solid lighten(v.$grey, 10%);
+                    }
+                }
             }
         }
     }

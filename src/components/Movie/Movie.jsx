@@ -37,7 +37,6 @@ function Movie({detail, moviesFavs, addFav, delFav}){
                         </div>
                         <div className='detail-add-fav'>
                             {moviesFavs.find(m => m.imdbID == detail.data.imdbID) ? <button onClick={() => delFav(detail.data.imdbID)}>REMOVE FROM FAVS</button> : <button onClick={() => addFav(detail.data.imdbID)}>ADD TO FAVS</button>}
-                            {/* <button onClick={() => addFav(detail.data.imdbID)}></button> */}
                         </div>
                     </div>
                 </div>
@@ -50,10 +49,10 @@ function Movie({detail, moviesFavs, addFav, delFav}){
                 </div>
                 <div className='info-container'>
                     <div className='poster-container'>
-                        <button>
+                        <div className='button-triangle'>
                             <div className='triangle'></div>
-                            <p>+</p>
-                        </button>
+                            {moviesFavs.find(m => m.imdbID === detail.data.imdbID) ? <button onClick={() => delFav(detail.data.imdbID)}>-</button> : <button onClick={() => addFav(detail.data.imdbID)}>+</button>}
+                        </div>
                         <img alt={detail.data.Title} src={detail.data.Poster}/>
                     </div>
                     <div className='plot-container'>
