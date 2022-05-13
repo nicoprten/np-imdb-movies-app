@@ -31,7 +31,7 @@ function SearchMovie(props){
                             View detail
                         </Link>
                     </div>
-                ) : <h2>We couldn't find the movie.</h2>}
+                ) : <h2>We couldn't find any results for your search.</h2>}
             </div>
         </>
     )
