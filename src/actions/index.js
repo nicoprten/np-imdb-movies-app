@@ -3,7 +3,7 @@ const apiKey = '4ef335cb';
 
 export function getMovies(title){
     return function(dispatch){
-        return fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${title}`)
+        return fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${title}`)
         .then(r => r.json())
         .then(d => dispatch({type: 'GET_MOVIES', payload: d}))
         .catch(e => console.log(e));
