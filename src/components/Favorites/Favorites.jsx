@@ -16,7 +16,7 @@ function Favorites({moviesFavs, getMovieDetail}){
                     </Link>
                  </div>
                 )
-                : <h2>There is no favorite movies yet...</h2>
+                : <h2>There are no favorite movies yet...</h2>
             }
         </div>
         
