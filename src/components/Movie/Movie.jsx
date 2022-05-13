@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import {addFav} from './../../actions/index.js';
+import {addFav, delFav} from './../../actions/index.js';
 import './Movie.scss';
 
 
-function Movie({detail, addFav}){
-    // console.log(detail.data.imdbID)
+function Movie({detail, moviesFavs, addFav, delFav}){
+    console.log(moviesFavs);
     return(
         <>
             {detail.loading ? <h2>Loading...</h2> : 
@@ -24,16 +24,20 @@ function Movie({detail, addFav}){
                     </div>
                     <div className='detail-container-rating'>
                         <div className='imdb-rating'>
-                            <div className='rating'>
-                                <p>IMDb RATING</p>
-                                <p><span id='rating-points'>{detail.data.imdbRating}</span> / 10</p>
-                            </div>
-                            <div className='votes'>
-                                <p>{detail.data.imdbVotes} votes</p>
+                            <p>IMDb RATING</p>
+                            <div className='rating-details'>
+                                <img alt='rating star' src='/images/fav-star.png'/>
+                                <div className='rating'>
+                                    <p><span id='rating-points'>{detail.data.imdbRating}</span> / 10</p>
+                                    <div className='votes'>
+                                        <p>{detail.data.imdbVotes} votes</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className='detail-add-fav'>
-                            <button onClick={() => addFav(detail.data.imdbID)}>ADD TO FAV</button>
+                            {moviesFavs.find(m => m.imdbID == detail.data.imdbID) ? <button onClick={() => delFav(detail.data.imdbID)}>REMOVE FROM FAVS</button> : <button onClick={() => addFav(detail.data.imdbID)}>ADD TO FAVS</button>}
+                            {/* <button onClick={() => addFav(detail.data.imdbID)}></button> */}
                         </div>
                     </div>
                 </div>
@@ -93,8 +97,9 @@ function Movie({detail, addFav}){
 
 const mapStateToProps = (state) => {
     return {
-        detail: state.detail
+        detail: state.detail,
+        moviesFavs: state.favs
     }
 }
 
-export default connect(mapStateToProps, {addFav})(Movie);
+export default connect(mapStateToProps, {addFav, delFav})(Movie);
