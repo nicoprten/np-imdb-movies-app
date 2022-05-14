@@ -1,10 +1,18 @@
+import React from 'react';
 import { connect } from 'react-redux';
-import {addFav, delFav} from './../../actions/index.js';
+import { useParams } from 'react-router-dom';
+import {addFav, delFav, getMovieDetail} from './../../actions/index.js';
 import './Movie.scss';
 
 
-function Movie({detail, moviesFavs, addFav, delFav}){
-    console.log(moviesFavs);
+function Movie({detail, moviesFavs, addFav, delFav, getMovieDetail}){
+    console.log(detail);
+    let id = useParams();
+    React.useEffect(() => {
+        console.log('rendereizando')
+        console.log(id)
+        getMovieDetail(id.id);
+    }, []);
     return(
         <>
             {detail.loading ? <h2>Loading...</h2> : 
@@ -43,8 +51,14 @@ function Movie({detail, moviesFavs, addFav, delFav}){
                 <div className='more-rating-container'>
                     <p>More Ratings</p>
                     <div className='more-rating'>
-                        <p>{detail.data.Ratings[1].Source}: {detail.data.Ratings[1].Value}</p>
-                        <p>{detail.data.Ratings[2].Source}: {detail.data.Ratings[2].Value}</p>
+                        {/* {console.log(detail.data.Ratings[1].Source)} */}
+                        {detail.data.Ratings.length > 1 ? 
+                        <>
+                            <p>{`${detail.data.Ratings[1].Source} : ${detail.data.Ratings[1].Value}`}</p>
+                            <p>{`${detail.data.Ratings[2].Source} : ${detail.data.Ratings[2].Value}`}</p>
+                        </> 
+                        : <p>No more ratings.</p>}
+                        
                     </div>
                 </div>
                 <div className='info-container'>
@@ -70,13 +84,13 @@ function Movie({detail, moviesFavs, addFav, delFav}){
                             <li>
                                 <p>Writer</p>
                                 {
-                                    detail.data.Writer.split(',').map(w => <a target='_blank' href={`https://www.google.com/search?q=${w}`}>{w}</a>)
+                                    detail.data.Writer.split(',').map((w, index) => <a key={index} target='_blank' href={`https://www.google.com/search?q=${w}`}>{w}</a>)
                                 }
                             </li>
                             <li>
                                 <p>Actors</p>
                                 {
-                                    detail.data.Actors.split(',').map(a => <a target='_blank' href={`https://www.google.com/search?q=${a}`}>{a}</a>)
+                                    detail.data.Actors.split(',').map((a, index) => <a key={index} target='_blank' href={`https://www.google.com/search?q=${a}`}>{a}</a>)
                                 }
                             </li>
                         </ul>
@@ -101,4 +115,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {addFav, delFav})(Movie);
+export default connect(mapStateToProps, {addFav, delFav, getMovieDetail})(Movie);

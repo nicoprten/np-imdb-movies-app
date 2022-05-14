@@ -27,7 +27,7 @@ function SearchMovie(props){
                     <div className='card' key={m.imdbID}>
                         <img alt={m.Title} src={m.Poster}/>
                         <h2>{m.Title}</h2>
-                        <Link to={`/movie/${m.imdbID}`} className='card-to-detail' onClick={() => props.getMovieDetail(m.imdbID)}>
+                        <Link to={`/movie/${m.imdbID}`} className='card-to-detail'>
                             View detail
                         </Link>
                     </div>
@@ -49,4 +49,4 @@ const mapStateToProps = (state) => {
 //     }
 // }
 
-export default connect(mapStateToProps, {getMovies, getMovieDetail})(SearchMovie);
+export default connect(mapStateToProps, {getMovies})(SearchMovie);
