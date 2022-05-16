@@ -1,0 +1,26 @@
+@use './../../utilities/_variables.scss' as v;
+
+.container-favs{
+    display: flex;
+    flex-direction: column;
+    .card{
+        background-color: v.$grey;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1em;
+        img{
+            width: 140px;
+        }
+        a{
+            text-decoration: none;
+            color: v.$blue;
+            padding: 1em;
+            border-radius: 5px;
+            font-weight: bold;
+            &:hover{
+                background-color: lighten(v.$grey, 5%);
+            }
+        }
+    }
+}

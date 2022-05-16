@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getMovieDetail } from './../../actions/index.js'; 
-// import './Favorites.scss';
-import './../SearchMovie/SearchMovie.scss';
+import './Favorites.scss';
+// import './../SearchMovie/SearchMovie.scss';
 
 function Favorites({moviesFavs, getMovieDetail}){
     return(
-        <div className="container-card">
+        <div className="container-favs">
             {moviesFavs.length > 0 ? moviesFavs.map((m) => 
                 <div className='card' key={m.imdbID}>
                     <img alt={m.Title} src={m.Poster}/>
@@ -14,7 +14,7 @@ function Favorites({moviesFavs, getMovieDetail}){
                     <Link to={`/movie/${m.imdbID}`} className='card-to-detail' onClick={() => getMovieDetail(m.imdbID)}> {/* TODO: switchear el button dependiendo si esta o no la peli en favs */}
                         View detail
                     </Link>
-                 </div>
+                </div>
                 )
                 : <h2>There are no favorite movies yet...</h2>
             }

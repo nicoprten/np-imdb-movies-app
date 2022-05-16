@@ -1,32 +1,34 @@
 const initialState = {
     favs: [],
     movies: [],
-    detail: {loading: true}
+    detail: {}
 }
 
 export default function rootReducer(state=initialState, action){
     switch(action.type){
         case 'GET_MOVIES':
-            console.log(action.payload.Search)
+            // FIX MOVIE REPEAT
             let obj = {};
-            let filterArray = [];
-            // obj[m.imdbID] ? false : obj[m.imdbID] = true
-            let moviesFilter = action.payload.Search.filter((m) => {obj[m.imdbID] ? console.log('esta el id') : obj[m.imdbID] = m});
-            console.log(obj)
-            for(const m in obj){
-                console.log(obj[m])
-                filterArray.push(obj[m])
-            }
-            console.log(filterArray)
+            let moviesFilter = action.payload.Search.filter((m) => {
+                if(!obj[m.imdbID]){
+                    obj[m.imdbID] = 'exist';
+                    return m;
+                }
+            });
             return {
                 ...state,
-                movies: filterArray
-            }
+                movies: moviesFilter
+            };
         case 'GET_MOVIE_DETAIL':
             return {
                 ...state,
-                detail: {loading: false, data: action.payload}
-            }
+                detail: action.payload
+            };
+        case 'DEL_DETAIL':
+            return{
+                ...state,
+                detail: {}
+            };
         case 'ADD_FAV':
             let movieFav = state.movies.find(m => m.imdbID === action.payload);
             return {

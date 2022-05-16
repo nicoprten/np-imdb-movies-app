@@ -17,6 +17,11 @@ export function getMovieDetail(id){
         .catch(e => console.log(e));
     }
 }
+export function delDetail(){
+    return {
+        type: 'DEL_DETAIL'
+    }
+}
 export function addFav(id){
     return {
         type: 'ADD_FAV',
