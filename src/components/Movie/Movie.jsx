@@ -6,6 +6,7 @@ import './Movie.scss';
 
 
 function Movie({delDetail, detail, moviesFavs, addFav, delFav, getMovieDetail}){
+    console.log(detail)
     let id = useParams();
 
     React.useEffect(() =>{
@@ -54,14 +55,9 @@ function Movie({delDetail, detail, moviesFavs, addFav, delFav, getMovieDetail}){
                 <div className='more-rating-container'>
                     <p>More Ratings</p>
                     <div className='more-rating'>
-                        {/* {console.log(detail.Ratings[1].Source)} */}
-                        {detail.Ratings.length > 1 ? 
-                        <>
-                            <p>{`${detail.Ratings[1].Source} : ${detail.Ratings[1].Value}`}</p>
-                            <p>{`${detail.Ratings[2].Source} : ${detail.Ratings[2].Value}`}</p>
-                        </> 
-                        : <p>No more ratings.</p>}
-                        
+                        {detail.Ratings.length === 1 && <p>No more ratings.</p>}
+                        {detail.Ratings[1] && <p>{`${detail.Ratings[1].Source} : ${detail.Ratings[1].Value}`}</p>}
+                        {detail.Ratings[2] && <p>{`${detail.Ratings[2].Source} : ${detail.Ratings[2].Value}`}</p>}
                     </div>
                 </div>
                 <div className='info-container'>
@@ -82,7 +78,9 @@ function Movie({delDetail, detail, moviesFavs, addFav, delFav, getMovieDetail}){
                         <ul className='names-container'>
                             <li>
                                 <p>Director</p>
-                                <a target='_blank' href={`https://www.google.com/search?q=${detail.Director}`}>{detail.Director}</a>
+                                {
+                                    detail.Director.split(',').map((d, index) => <a key={index} target='_blank' href={`https://www.google.com/search?q=${d}`}>{d}</a>)
+                                }
                             </li>
                             <li>
                                 <p>Writer</p>
