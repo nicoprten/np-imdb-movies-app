@@ -1,19 +1,24 @@
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getMovieDetail } from './../../actions/index.js'; 
+import { getMovieDetail, delFav } from './../../actions/index.js'; 
 import './Favorites.scss';
 // import './../SearchMovie/SearchMovie.scss';
 
-function Favorites({moviesFavs, getMovieDetail}){
+function Favorites({moviesFavs, getMovieDetail, delFav}){
     return(
         <div className="container-favs">
             {moviesFavs.length > 0 ? moviesFavs.map((m) => 
                 <div className='card' key={m.imdbID}>
                     <img alt={m.Title} src={m.Poster}/>
-                    <h2>{m.Title}</h2>
-                    <Link to={`/movie/${m.imdbID}`} className='card-to-detail' onClick={() => getMovieDetail(m.imdbID)}> {/* TODO: switchear el button dependiendo si esta o no la peli en favs */}
-                        View detail
-                    </Link>
+                    <div className='card-info'>
+                        <h2>{m.Title}</h2>
+                        <Link to={`/movie/${m.imdbID}`} className='card-to-detail' onClick={() => getMovieDetail(m.imdbID)}>
+                            View detail
+                        </Link>
+                        <button onClick={() => delFav(m.imdbID)}>
+                            Remove
+                        </button>
+                    </div>
                 </div>
                 )
                 : <h2>There are no favorite movies yet...</h2>
@@ -29,4 +34,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {getMovieDetail})(Favorites);
+export default connect(mapStateToProps, {getMovieDetail, delFav})(Favorites);

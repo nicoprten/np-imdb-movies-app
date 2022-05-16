@@ -21,7 +21,7 @@ function SearchMovie(props){
                 }}>Search</button>
             </div>
             <div className='container-card'>
-                {props.movies !== undefined ? props.movies.map((m) => 
+                {props.movies.length > 0 ? props.movies.map((m) => 
                     <div className='card' key={m.imdbID}>
                         <img alt={m.Title} src={m.Poster}/>
                         <h2>{m.Title}</h2>

@@ -9,12 +9,16 @@ export default function rootReducer(state=initialState, action){
         case 'GET_MOVIES':
             // FIX MOVIE REPEAT
             let obj = {};
-            let moviesFilter = action.payload.Search.filter((m) => {
-                if(!obj[m.imdbID]){
-                    obj[m.imdbID] = 'exist';
-                    return m;
-                }
-            });
+            let moviesFilter = [];
+            if(action.payload.Search !== undefined){
+                moviesFilter = action.payload.Search.filter((m) => {
+                    if(!obj[m.imdbID]){
+                        obj[m.imdbID] = 'exist';
+                        return m;
+                    }
+                });
+            }
+
             return {
                 ...state,
                 movies: moviesFilter
