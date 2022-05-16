@@ -1,6 +1,6 @@
 <h2>Movies App </h2> 
-<p>API IMDB: https://www.omdbapi.com/</p>
-<p>I am using:</p>
+<p><b>API IMDB: https://www.omdbapi.com/</b></p>
+<p><b>I am using:</b></p>
 
 ![SASS](https://img.shields.io/badge/-SASS-1572B6?style=flat-square&logo=sass)
 ![React](https://img.shields.io/badge/-React-181717?style=flat-square&logo=react)
