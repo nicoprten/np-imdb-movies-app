@@ -20,9 +20,13 @@
 
 ![image](https://user-images.githubusercontent.com/41525219/168506024-6a4ce3fd-a96e-4109-8024-4c2bf28b8c2b.png)
 
-<p><b>| Save your favorite movies</b></p>
+<p><b>| Save your favorites</b></p>
 
 ![Sin-título-1](https://user-images.githubusercontent.com/41525219/168518259-f5e52a16-b06b-4c1e-b5f9-c5c7a880bce4.jpg)
+
+<p><b>| See all your favorites movies</b></p>
+
+![image](https://user-images.githubusercontent.com/41525219/168523007-7e1090b9-2203-4440-9d0d-e4f395ebb060.png)
 
 
 <b>| For any question do not hesitate to contact me</b>
