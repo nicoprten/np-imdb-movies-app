@@ -9,12 +9,22 @@ import { Link } from 'react-router-dom';
 
 function SearchMovie(props){
     const [movie, setMovie] = useState('');
+    React.useEffect(() =>{
+        let inputSearch = document.getElementById('inputSearch');
+        inputSearch.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter'){
+                props.getMovies(e.target.value);
+                setMovie('');
+            }
+        })
+    }, [])
 
     return(
         <>
             <div className='container-search'>
-                <input onChange={(e) => {setMovie(e.target.value)}} placeholder='Search movie' type='text' value={movie}/>
+                <input id='inputSearch' onChange={(e) => {setMovie(e.target.value)}} placeholder='Search movie' type='text' value={movie}/>
                 <button onClick={() =>{
+                    setMovie(movie)
                     props.getMovies(movie);
                     setMovie('');
                 }}>Search</button>

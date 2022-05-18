@@ -20,7 +20,6 @@
                 padding: .6em;
                 border-radius: .2em;
                 &:hover{
-                    // background-color: red;
                     background-color: lighten(v.$black, 8%);
                     transition: .2s;
                 }
