@@ -15,7 +15,6 @@ function SearchMovie(props){
             <div className='container-search'>
                 <input onChange={(e) => {setMovie(e.target.value)}} placeholder='Search movie' type='text' value={movie}/>
                 <button onClick={() =>{
-                    console.log(movie);
                     props.getMovies(movie);
                     setMovie('');
                 }}>Search</button>
@@ -29,7 +28,7 @@ function SearchMovie(props){
                             View detail
                         </Link>
                     </div>
-                ) : <h2>We couldn't find any results for your search.</h2>}
+                ) : movie !== '' && <h2>We couldn't find any results for your search.</h2>}
             </div>
         </>
     )
