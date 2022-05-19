@@ -2,9 +2,13 @@
 
 .container{
     background-color: v.$black;
-    padding: .4em;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 0.5em 18%;
+    @media screen and (max-width: 1300px) {
+        padding: 0.5em 10%;
+    }
     .container-img{
         margin-left: .4em;
     }
