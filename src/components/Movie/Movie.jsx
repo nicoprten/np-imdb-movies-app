@@ -7,10 +7,10 @@ import './Movie.scss';
 
 function Movie({delDetail, detail, moviesFavs, addFav, delFav, getMovieDetail}){
     console.log(detail)
-    let id = useParams();
+    let params = useParams();
 
     React.useEffect(() =>{
-        getMovieDetail(id.id);
+        getMovieDetail(params.id);
         return () => {
             console.log('unmount')
             delDetail();
