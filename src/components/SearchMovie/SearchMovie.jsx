@@ -4,19 +4,24 @@ import React from 'react';
 import './SearchMovie.scss';
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { getMovies } from './../../actions/index.js';
+import { getMovies, delMovies } from './../../actions/index.js';
 import { Link } from 'react-router-dom';
+import { Ring } from '@uiball/loaders';
 
 function SearchMovie(props){
     const [movie, setMovie] = useState('');
+    const [checkSearch, setCheckSearch] = useState(false);
+
     React.useEffect(() =>{
         let inputSearch = document.getElementById('inputSearch');
         inputSearch.addEventListener('keydown', (e) => {
             if(e.key === 'Enter'){
+                setCheckSearch(true);
+                props.delMovies();
                 props.getMovies(e.target.value);
                 setMovie('');
             }
-        })
+        });
     }, [])
 
     return(
@@ -24,13 +29,15 @@ function SearchMovie(props){
             <div className='container-search'>
                 <input id='inputSearch' onChange={(e) => {setMovie(e.target.value)}} placeholder='Search movie' type='text' value={movie}/>
                 <button onClick={() =>{
+                    setCheckSearch(true);
+                    props.delMovies();
                     setMovie(movie)
                     props.getMovies(movie);
                     setMovie('');
                 }}>Search</button>
             </div>
             <div className='container-card'>
-                {props.movies.length > 0 ? props.movies.map((m) => 
+                {Object.keys(props.movies).length !== 0 ? props.movies.map((m) => 
                     <div className='card' key={m.imdbID}>
                         <img alt={m.Title} src={m.Poster}/>
                         <h2>{m.Title}</h2>
@@ -38,7 +45,11 @@ function SearchMovie(props){
                             View detail
                         </Link>
                     </div>
-                ) : movie !== '' && <h2>We couldn't find any results for your search.</h2>}
+                ) : checkSearch &&
+                <div className="loader">
+                    <Ring size={200} lineWeight={5} speed={1} color="#fbdb00" />
+                </div>
+                }
             </div>
         </>
     )
@@ -56,4 +67,4 @@ const mapStateToProps = (state) => {
 //     }
 // }
 
-export default connect(mapStateToProps, {getMovies})(SearchMovie);
+export default connect(mapStateToProps, {getMovies, delMovies})(SearchMovie);

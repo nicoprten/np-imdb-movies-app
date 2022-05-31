@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {addFav, delFav, getMovieDetail, delDetail} from './../../actions/index.js';
 import './Movie.scss';
+import { Ring } from '@uiball/loaders';
 
 
 function Movie({delDetail, detail, moviesFavs, addFav, delFav, getMovieDetail}){
@@ -19,7 +20,10 @@ function Movie({delDetail, detail, moviesFavs, addFav, delFav, getMovieDetail}){
 
     return(
         <>
-            {Object.keys(detail).length === 0 ? <h2>Loading...</h2> : 
+            {Object.keys(detail).length === 0 ? 
+            <div className="loader">
+                <Ring size={200} lineWeight={5} speed={1} color="#fbdb00" />
+            </div> : 
             <div className="detail-container">
                 <div className="title-container">
                     <div className="card-container-title">

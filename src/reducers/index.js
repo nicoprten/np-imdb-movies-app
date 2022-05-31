@@ -23,6 +23,11 @@ export default function rootReducer(state=initialState, action){
                 ...state,
                 movies: moviesFilter
             };
+        case 'DEL_MOVIES':
+            return{
+                ...state,
+                movies: []
+            };
         case 'GET_MOVIE_DETAIL':
             return {
                 ...state,

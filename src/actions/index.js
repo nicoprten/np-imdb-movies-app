@@ -9,6 +9,11 @@ export function getMovies(title){
         .catch(e => console.log(e));
     }
 }
+export function delMovies(){
+    return {
+        type: 'DEL_MOVIES'
+    }
+}
 export function getMovieDetail(id){
     return function(dispatch){
         return axios.get(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)

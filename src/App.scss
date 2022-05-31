@@ -1,6 +1,14 @@
 @use './utilities/_variables.scss' as v;
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Roboto&family=Roboto+Mono&display=swap');
 
+// Loader
+
+.loader{
+    position: absolute;
+    top: 25%;
+    left: 40%;
+}
+
 body{
     margin: 0;
     padding: 0;
