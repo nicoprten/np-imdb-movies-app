@@ -1,6 +1,11 @@
 @use './../../utilities/_variables.scss' as v;
 @use './../../utilities/animations.scss';
 
+.loader{
+    justify-content: center;
+    display: flex;
+}
+
 .detail-container{
     background-color: v.$grey;
     padding: 10px 18%;

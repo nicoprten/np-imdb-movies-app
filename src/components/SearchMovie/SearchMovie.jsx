@@ -12,6 +12,7 @@ function SearchMovie(props){
     const [movie, setMovie] = useState('');
     const [checkSearch, setCheckSearch] = useState(false);
 
+    console.log(props.movies)
     React.useEffect(() =>{
         let inputSearch = document.getElementById('inputSearch');
         inputSearch.addEventListener('keydown', (e) => {

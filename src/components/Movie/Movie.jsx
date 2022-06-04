@@ -23,7 +23,7 @@ function Movie({delDetail, detail, moviesFavs, addFav, delFav, getMovieDetail}){
             {Object.keys(detail).length === 0 ? 
             <div className="loader">
                 <Ring size={200} lineWeight={5} speed={1} color="#fbdb00" />
-            </div> : 
+            </div> :
             <div className="detail-container">
                 <div className="title-container">
                     <div className="card-container-title">
