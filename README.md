@@ -4,6 +4,7 @@
   <li><b>I use the API from IMDb. Link: https://www.omdbapi.com/</b></li>
   <li><b>I made this project to put into practice what I learned in the SoyHenry bootcamp.</b></li>
   <li><b>TODOs: LocalStorage, Login.</b></li>
+  <li>Use SASS with mixins to style the entire web.</li>
  </ul>
 
 <p><b>I am using:</b></p>
